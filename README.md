@@ -1,27 +1,51 @@
-# SpotifyRoulette
+# Spotify Roulette
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
+Random Songs.
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Checkout a new random song from Spotify list.
 
-## Code scaffolding
+### Prerequisites
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This are the needed tools:
+- [NodeJS](https://nodejs.org/es/): JavaScript environment in server side
+- [Angular CLI](https://cli.angular.io/): a command line interface
 
-## Build
+For NodeJS you must download the LTS version from their official web page. Once you have installed it, you can now proceed to install Angular typing `npm install -g @angular/cli`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### Installing
 
-## Running unit tests
+For a develop environment just download all the dependencies with `npm install`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Running the tests
 
-## Running end-to-end tests
+There are no tests yet.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Deployment
 
-## Further help
+For local deployment just type `npm run start`. It will automatically open a new browser in `localhost:4200`.
+In case you need to change your port, add this flag `--port <port_number>`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Built With
+
+* [Angular CLI](https://cli.angular.io/) - Front End Framework with a command line interface for Angular
+
+## Contributing
+
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+
+## Authors
+
+* **Adrian Castellanos** - *Product Owner* - [GitHub](https://github.com/adriancast)
+* **Karen Cubero González** - *Developer* - [GitHub](https://github.com/karencuberodesigner)
+
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
