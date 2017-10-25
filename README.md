@@ -1,10 +1,7 @@
-# Spotify Roulette
+[![Build Status](https://travis-ci.org/adriancast/spotify-roulette.svg?branch=master)](https://travis-ci.org/adriancast/spotify-roulette)
+## What is this project
 
-Random Songs.
-
-## Getting Started
-
-Checkout a new random song from Spotify list.
+This is a mini project for [Hacktober fest](https://hacktoberfest.digitalocean.com). This project will make you able to log in your spotify account and play music in your devices.
 
 ### Prerequisites
 
