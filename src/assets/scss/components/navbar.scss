@@ -1,0 +1,9 @@
+/* Hover logo */
+.hero.is-info {
+  a.navbar-item:hover,
+  a.navbar-item.is-active,
+  .navbar-link:hover,
+  .navbar-link.is-active {
+    background: none;
+  }
+}
