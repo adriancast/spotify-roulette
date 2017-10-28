@@ -1,5 +1,6 @@
+import { LoginGuard } from './core/guards/login.guard';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { NotFoundComponent } from './feature/platform/components/presentation/not-found/not-found.component';
 import { LoginComponent } from './feature/platform/components/smart/login/login.component';
 import { DashboardComponent } from './feature/platform/components/smart/dashboard/dashboard.component';
@@ -9,23 +10,24 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'login'
+    redirectTo: 'login',
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: 'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate: [LoginGuard],
   },
   {
     path: 'contributors',
-    component: ContributorsComponent
+    component: ContributorsComponent,
   },
   {
     path: '**',
-    component: NotFoundComponent
+    component: NotFoundComponent,
   },
 ];
 

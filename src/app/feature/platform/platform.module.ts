@@ -1,3 +1,4 @@
+import { AuthorizationService } from './services/authorization.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NotFoundComponent } from './components/presentation/not-found/not-found.component';
@@ -10,7 +11,14 @@ import { ContributorMemberComponent } from './components/presentation/contributo
 
 @NgModule({
   imports: [CommonModule, HttpModule, SharedModule],
-  declarations: [NotFoundComponent, LoginComponent, DashboardComponent, ContributorsComponent, ContributorMemberComponent],
+  declarations: [
+    NotFoundComponent,
+    LoginComponent,
+    DashboardComponent,
+    ContributorsComponent,
+    ContributorMemberComponent,
+  ],
   exports: [NotFoundComponent, LoginComponent, DashboardComponent],
+  providers: [AuthorizationService],
 })
 export class PlatformModule {}
