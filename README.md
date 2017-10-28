@@ -27,7 +27,7 @@ In case you need to change your port, add this flag `--port <port_number>`.
 ## Built With
 
 * [Angular CLI](https://cli.angular.io/) - Front End Framework with a command line interface for Angular
-
+* [Spotify Web API](https://developer.spotify.com/web-api/authorization-guide/) - Spotify API
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
