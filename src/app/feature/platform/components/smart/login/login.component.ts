@@ -1,4 +1,4 @@
-import { AuthorizationService } from './../../../services/authorization.service';
+import { AuthorizationService } from './../../../../../core/services/authorization.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -18,10 +18,9 @@ export class LoginComponent implements OnInit {
   }
 
   handleLogin() {
-    this.authorizationService.getParameters();
-    // const isAuthorized = this.authorizationService.isAuthorized();
-    // isAuthorized
-    //   ? this.router.navigate(['/dashboard'])
-    //   : this.authorizationService.getAuthorization();
+    const isAuthorized = this.authorizationService.isAuthorized();
+    isAuthorized
+      ? this.router.navigate(['/dashboard'])
+      : this.authorizationService.getParameters();
   }
 }

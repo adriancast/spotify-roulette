@@ -1,3 +1,4 @@
+import { AuthorizationService } from './../services/authorization.service';
 import { Injectable } from '@angular/core';
 import {
   CanActivate,
@@ -8,11 +9,13 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class LoginGuard implements CanActivate {
+  constructor(private authorizationService: AuthorizationService) {}
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    const userLogged = false;
+    const userLogged = this.authorizationService.isAuthorized();
     if (userLogged) {
       return true;
     }

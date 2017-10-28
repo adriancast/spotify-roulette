@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "6.9"
+  - node
 
 branches:
   only:
@@ -13,9 +13,13 @@ before_install:
   - sleep 3
 
 before_script:
-  - npm install -g @angular/cli
+  - npm install -g --silent @angular/cli
+  - npm install -g --silent firebase-tools
 
 script:
   - ng test --single-run
   - ng e2e
+  - ng build --prod
 
+after_success:
+  - firebase deploy --token $FIREBASE_TOKEN --non-interactive

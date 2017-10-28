@@ -10,16 +10,16 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'login',
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
+    redirectTo: 'dashboard',
   },
   {
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [LoginGuard],
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
   {
     path: 'contributors',

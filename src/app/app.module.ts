@@ -8,7 +8,12 @@ import { PlatformModule } from './feature/platform/platform.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, PlatformModule, CoreModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    PlatformModule,
+    CoreModule.forRoot(),
+    AppRoutingModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
