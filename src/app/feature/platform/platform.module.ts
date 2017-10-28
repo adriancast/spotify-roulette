@@ -6,10 +6,11 @@ import { DashboardComponent } from './components/smart/dashboard/dashboard.compo
 import { ContributorsComponent } from './components/smart/contributors/contributors.component';
 import { HttpModule } from '@angular/http';
 import { SharedModule } from '../../shared/shared.module';
+import { ContributorMemberComponent } from './components/presentation/contributor-member/contributor-member.component';
 
 @NgModule({
   imports: [CommonModule, HttpModule, SharedModule],
-  declarations: [NotFoundComponent, LoginComponent, DashboardComponent, ContributorsComponent],
+  declarations: [NotFoundComponent, LoginComponent, DashboardComponent, ContributorsComponent, ContributorMemberComponent],
   exports: [NotFoundComponent, LoginComponent, DashboardComponent],
 })
 export class PlatformModule {}
