@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../../../services/spotify.service';
-import { Song } from '../../../models/song';
+import { Song } from '../../../models/song.interface';
 
 @Component({
   selector: 'sr-dashboard',
@@ -10,6 +10,7 @@ import { Song } from '../../../models/song';
 })
 export class DashboardComponent implements OnInit {
   song: Song;
+
   constructor(private _spotifyService: SpotifyService) {}
 
   ngOnInit() {
@@ -17,22 +18,27 @@ export class DashboardComponent implements OnInit {
     this.getRandomSongFromSpotify();
   }
 
-  getRandomSongFromSpotify(){
-    this._spotifyService.getRandomSongFromSpotify()
-    .then((res: any) => {
-      //FIXME I don't know how to use interfaces properly
-      var response = JSON.parse(res._body).tracks[0];
-      this.song = new Song(response.name,
-                           response.album.images[0].url,
-                           response.external_urls.spotify,
-                           response.album.artists);
-
-
-    })
-    .catch(err => console.log(err));
+  getRandomSongFromSpotify() {
+    this._spotifyService
+      .getRandomSongFromSpotify()
+      .then((res: any) => {
+        try {
+          const response = JSON.parse(res._body).tracks[0];
+          this.song = {
+            name: response.name,
+            imgUrl: response.album.images[0].url,
+            playUrl: response.external_urls.spotify,
+            artistList: response.album.artists,
+          };
+        } catch (e) {
+          this.song = null;
+          console.log(e);
+        }
+      })
+      .catch(err => console.log(err));
   }
 
-  initHeader(){
+  initHeader() {
     const typed = new Typed('.typed', {
       strings: ['favourite', 'treasured', 'desired', 'best-loved'],
       stringsElement: null,

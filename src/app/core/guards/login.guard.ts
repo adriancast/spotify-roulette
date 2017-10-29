@@ -4,12 +4,16 @@ import {
   CanActivate,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
+  Router,
 } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class LoginGuard implements CanActivate {
-  constructor(private authorizationService: AuthorizationService) {}
+  constructor(
+    private authorizationService: AuthorizationService,
+    private router: Router
+  ) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -19,6 +23,7 @@ export class LoginGuard implements CanActivate {
     if (userLogged) {
       return true;
     }
+    this.router.navigate(['login']);
     return false;
   }
 }
