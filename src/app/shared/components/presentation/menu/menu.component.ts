@@ -3,21 +3,22 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'sr-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent implements OnInit {
+  sidebarWidth: number;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+    this.sidebarWidth = 0;
   }
 
   openNav() {
-      document.getElementById("mySidenav").style.width = "250px";
+    this.sidebarWidth = 250;
   }
 
   closeNav() {
-      document.getElementById("mySidenav").style.width = "0";
+    this.sidebarWidth = 0;
   }
-
 }
