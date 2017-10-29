@@ -1,5 +1,5 @@
 <!--End Hero-->
-<section class="hero is-info is-medium">
+<section class="hero is-info">
   <header>
     <sr-menu></sr-menu>
   </header>
@@ -7,15 +7,12 @@
   <div class="hero-body">
     <div class="container has-text-centered">
       <p class="title">
-        Spolette
-      </p>
-      <p class="subtitle">
         Discover your next
         <span class="typed"></span> song
       </p>
     </div>
   </div>
-  <div class="hero-foot">
+  <!--<div class="hero-foot">
     <nav class="tabs is-boxed is-fullwidth">
       <div class="container">
         <ul>
@@ -31,7 +28,7 @@
         </ul>
       </div>
     </nav>
-  </div>
+  </div>-->
 </section>
 <!--End Hero-->
 
@@ -41,21 +38,31 @@
     <div class="columns is-vcentered">
       <div class="column is-5">
         <figure class="image is-4by3">
-          <img src="http://www.iseododosound.com/wp-content/uploads/2013/11/Cover12.jpg" alt="Description">
+          <img src="{{song.imgUrl}}" alt="{{song.artistList[0].name}}-{{song.name}}">
         </figure>
       </div>
       <div class="column is-6 is-offset-1">
         <h1 class="title is-2">
-          Vampire
+          {{song.name}}
         </h1>
         <h2 class="subtitle is-4">
-          Iseo & Dodosound
+          {{song.artistList[0].name}}
         </h2>
         <br>
         <p class="has-text-centered">
-          <a class="button is-medium is-info is-outlined">
+          <a href="{{song.playUrl}}" target="Song" class="button is-medium is-info is-outlined">
             Listen on Spotify
           </a>
+        </p>
+        <p class="has-text-centered">
+          -
+        </p>
+        <p class="has-text-centered">
+
+          <a (click)="getRandomSongFromSpotify()" class="button is-medium is-danger is-outlined">
+            Search again !
+          </a>
+
         </p>
       </div>
     </div>
