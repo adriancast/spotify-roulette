@@ -1,4 +1,3 @@
-import { AuthorizationService } from './services/authorization.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NotFoundComponent } from './components/presentation/not-found/not-found.component';
@@ -18,7 +17,6 @@ import { ContributorMemberComponent } from './components/presentation/contributo
     ContributorsComponent,
     ContributorMemberComponent,
   ],
-  exports: [NotFoundComponent, LoginComponent, DashboardComponent],
-  providers: [AuthorizationService],
+  exports: [NotFoundComponent, LoginComponent, DashboardComponent]
 })
 export class PlatformModule {}

@@ -1,9 +1,10 @@
-import { environment } from './../../../../environments/environment.prod';
+import { Router } from '@angular/router';
+import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthorizationService {
-  constructor() {}
+  constructor(private router: Router) {}
 
   generateRandomString(length): string {
     let text = '';
@@ -50,6 +51,7 @@ export class AuthorizationService {
     if (state === storedState && access_token) {
       localStorage.setItem('accessToken', access_token);
       localStorage.setItem('expiresIn', expires_in);
+      this.router.navigate(['/dashboard']);
     } else {
       this.getAuthorization();
     }
