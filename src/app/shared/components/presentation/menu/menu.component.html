@@ -1,3 +1,16 @@
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+  <a href="/dashboard">Roulette</a>
+  <a href="/contributors">Contributors</a>
+  <a href="https://github.com/adriancast/spotify-roulette" target="_blank">
+    <span class="icon">
+      <i class="fa fa-github"></i>
+    </span>
+    <span>Fork me</span>
+  </a>
+</div>
+
 <div class="hero-head">
   <nav class="navbar">
     <div class="container">
@@ -5,11 +18,11 @@
         <a href="/"class="navbar-item">
           <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Spotify_logo13.png" alt="Logo">
         </a>
-        <!--<span class="navbar-burger burger" data-target="navbarMenuHeroB">
+        <span (click)="openNav()" class="navbar-burger burger" data-target="navbarMenuHeroB">
           <span></span>
           <span></span>
           <span></span>
-        </span>-->
+        </span>
       </div>
       <div id="navbarMenuHeroB" class="navbar-menu">
         <div class="navbar-end">
@@ -32,3 +45,13 @@
     </div>
   </nav>
 </div>
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+</script>
