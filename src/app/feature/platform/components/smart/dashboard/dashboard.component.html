@@ -36,9 +36,9 @@
 <div class="hero-body" *ngIf="song">
   <div class="container has-text-centered">
     <div class="columns is-vcentered">
-      <div class="column is-5">
+      <div class="column is-5" >
         <figure class="image is-4by3">
-          <img src="{{song.imgUrl}}" alt="{{song.artistList[0].name}}-{{song.name}}">
+          <img src="{{song.imgUrl}}" alt="{{song.artistList[0].name}}-{{song.name}}" >
         </figure>
       </div>
       <div class="column is-6 is-offset-1">
@@ -50,7 +50,11 @@
         </h2>
         <br>
         <p class="has-text-centered">
-          <a href="{{song.playUrl}}" target="Song" class="button is-medium is-info is-outlined">
+          <button *ngIf="song.previewUrl" (click)="playSong(song)" class="button is-medium is-info is-outlined">
+            Preview
+          </button>
+
+          <a href="{{song.playUrl}}" target="Song" class="button is-medium is-primary is-outlined">
             Listen on Spotify
           </a>
         </p>
@@ -60,9 +64,8 @@
         <p class="has-text-centered">
 
           <a (click)="getRandomSongFromSpotify()" class="button is-medium is-danger is-outlined">
-            Search again !
+            Search again!
           </a>
-
         </p>
       </div>
     </div>

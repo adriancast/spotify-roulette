@@ -1,3 +1,4 @@
+import { SpotifyAudioService } from './../../../services/spotify-audio.service';
 import { Component, OnInit } from '@angular/core';
 import { SpotifyService } from '../../../services/spotify.service';
 import { Song } from '../../../models/song.interface';
@@ -6,12 +7,14 @@ import { Song } from '../../../models/song.interface';
   selector: 'sr-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  providers: [SpotifyService],
+  providers: [SpotifyService, SpotifyAudioService],
 })
 export class DashboardComponent implements OnInit {
   song: Song;
 
-  constructor(private _spotifyService: SpotifyService) {}
+  constructor(
+    private readonly _spotifyService: SpotifyService,
+    private readonly _spotifyAudioService: SpotifyAudioService) {}
 
   ngOnInit() {
     this.initHeader();
@@ -28,6 +31,7 @@ export class DashboardComponent implements OnInit {
             name: response.name,
             imgUrl: response.album.images[0].url,
             playUrl: response.external_urls.spotify,
+            previewUrl: response.preview_url,
             artistList: response.album.artists,
           };
         } catch (e) {
@@ -53,5 +57,10 @@ export class DashboardComponent implements OnInit {
       attr: null,
       contentType: 'html',
     });
+  }
+
+  playSong(current: Song) {
+    console.log(current.previewUrl);
+    this._spotifyAudioService.playSong(current.previewUrl);
   }
 }
