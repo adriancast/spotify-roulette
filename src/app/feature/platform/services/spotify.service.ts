@@ -14,7 +14,7 @@ import { Observable } from 'rxjs/Observable';
 export class SpotifyService {
   constructor(private http: Http) {}
 
-  getRandomSongFromSpotify(): Promise<Response> {
+  getRandomSongFromSpotify(last_seed: string): Promise<Response> {
     const options = new RequestOptions({});
 
     if (localStorage.getItem('accessToken')) {
@@ -26,7 +26,8 @@ export class SpotifyService {
         'Bearer ' + localStorage.getItem('accessToken')
       );
     }
-    const url = `https://api.spotify.com/v1/recommendations?seed_tracks=0c6xIDDpzE81m2q797ordA&min_popularity=50&market=US&limit=1`;
+    const url = `https://api.spotify.com/v1/recommendations?seed_tracks=`+last_seed+`&min_popularity=50&market=US&limit=1`;
     return this.http.get(url, options).toPromise();
+
   }
 }
