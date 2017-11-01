@@ -34,6 +34,7 @@ export class DashboardComponent implements OnInit {
       .then((res: any) => {
         try {
           const response = JSON.parse(res._body).tracks[0];
+          if(response.preview_url != null){
           this.song = {
             name: response.name,
             imgUrl: response.album.images[0].url,
@@ -42,11 +43,9 @@ export class DashboardComponent implements OnInit {
             artistList: response.album.artists,
             id: response.id
           };
-
-          if(this.song.previewUrl == null){
-            console.log('song not valid retry');
+        }else{
             this.getRandomSongFromSpotify();
-          }
+        }
         } catch (e) {
           this.song = null;
         }
