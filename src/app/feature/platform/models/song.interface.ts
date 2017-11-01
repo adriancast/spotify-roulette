@@ -3,5 +3,6 @@ export interface Song {
   imgUrl: string;
   playUrl: string;
   previewUrl: string;
+  id: string;
   artistList: string[];
 }
